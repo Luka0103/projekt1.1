@@ -1,29 +1,29 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#define SPITZE 1
-#define GUT 2
-#define BEFRIEDIGEND 3
-#define AUSREICHEND 4
-#define DURCHGEFALLEN 5
-#define JA 1
-#define NEIN 0
+
 
 int main(void) {
-    unsigned int note, bestanden;
-    printf("Geben Sie bitte eine Note (1-5) ein: ");
-    scanf("%u", &note);
-
-    switch (note) {
-    case SPITZE:bestanden = JA;
-        break;
-    case GUT:bestanden = JA;
-        break;
-    case BEFRIEDIGEND:bestanden = JA;
-        break;
-    case AUSREICHEND:bestanden = JA;
-        break;
-    default:bestanden = NEIN;
+    int groesse;
+    scanf("%i", &groesse);
+    for (int i = 0; i < groesse; i++)
+    {
+        for (int j = 0; j < groesse; j++)
+        {
+            //letze oder erste zeile
+            if (i == 0 || i == groesse - 1) {
+                printf("*");
+            }
+            else if (j == 0 || j == groesse - 1) {
+                printf("*");
+            }
+            else if (i-j==0||i+j==groesse-1) {
+                printf("*");
+            }
+            else {
+                printf(" ");
+            }
+        }
+        printf("\n");
     }
-    bestanden ? printf("\nOK!") : printf("\nNICHT bestanden");
     return 0;
 }
