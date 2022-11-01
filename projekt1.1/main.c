@@ -6,7 +6,8 @@
 #define MAX_EINGABE 40
 
 char eingabe[MAX_EINGABE];
-int anzahlKB = 0;
+char vokale[] = { 'a','e','i','o','u','A','E','I','O','U' };
+int anzahlVokale = 0;
 int main() {
     for (int i = 0; i < MAX_EINGABE; i++)   //Nicht gut besser wäre scanf mit %s aber nimmt moodle nicht
     {
@@ -15,11 +16,14 @@ int main() {
 
     for (int i = 0; i < MAX_EINGABE; i++)
     {
-        if (eingabe[i] > '\x60' && eingabe[i] < '\x7B') {
-            anzahlKB++;
+        for (int j = 0; j < 10; j++)
+        {
+            if (eingabe[i] == vokale[j]) {
+                anzahlVokale++;
+            }
         }
     }
-    printf("%i Kleinbuchstaben", anzahlKB);
+    printf("%i Vokale", anzahlVokale);
     
     return 0;
 }
