@@ -6,19 +6,14 @@
 #define MAX_EINGABE 40
 
 char eingabe[MAX_EINGABE];
-int startIndex;
-int endIndex;
-char ausgabe[MAX_EINGABE];
-int zaehler=0;
 int main() {
-    scanf("%s %i %i", eingabe,&startIndex,&endIndex);
+    scanf("%s", eingabe);
 
-    for (int i = startIndex; i <= endIndex; i++)
+    for (int i = MAX_EINGABE; i >= 0; i--)
     {
-        ausgabe[zaehler] = eingabe[i];
-        zaehler++;
+        if (eingabe[i] != '\x00') {
+            printf("%c", eingabe[i]);
+        }
     }
-
-    printf("%s %i-%i: %s", eingabe,startIndex,endIndex,ausgabe);
     return 0;
 }
