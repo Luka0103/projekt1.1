@@ -3,27 +3,23 @@
 
 
 //Constanten
-#define ARRAY_DIM 4
+#define MAX_EINGABE 40
 
-
-int main(void) {
-    double eingabenArray[ARRAY_DIM];
-    double kleinsteEingabe;
-    int index;
-    for (int i = 0; i < ARRAY_DIM; i++)
+char eingabe[MAX_EINGABE];
+int anzahlKB = 0;
+int main() {
+    for (int i = 0; i < MAX_EINGABE; i++)   //Nicht gut besser wäre scanf mit %s aber nimmt moodle nicht
     {
-        scanf("%lf", &eingabenArray[i]);
+        scanf("%c", &eingabe[i]);
     }
-    kleinsteEingabe = eingabenArray[0];
-    index = 0;
-    for (int i = 0; i < ARRAY_DIM; i++)
+
+    for (int i = 0; i < MAX_EINGABE; i++)
     {
-        if (kleinsteEingabe > eingabenArray[i]) {
-            kleinsteEingabe = eingabenArray[i];
-            index = i;
+        if (eingabe[i] > '\x60' && eingabe[i] < '\x7B') {
+            anzahlKB++;
         }
     }
-
-    printf("Kleinste Zahl: %0.1lf an Index %i", kleinsteEingabe, index);
+    printf("%i Kleinbuchstaben", anzahlKB);
+    
     return 0;
 }
