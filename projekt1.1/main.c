@@ -6,24 +6,19 @@
 #define MAX_EINGABE 40
 
 char eingabe[MAX_EINGABE];
+int startIndex;
+int endIndex;
+char ausgabe[MAX_EINGABE];
+int zaehler=0;
 int main() {
-    for (int i = 0; i < MAX_EINGABE; i++)   //Nicht gut besser wäre scanf mit %s aber nimmt moodle nicht
-    {
-        scanf("%c", &eingabe[i]);          
-    }
-    for (int i = 0; i < MAX_EINGABE; i++)
-    {
-        if (eingabe[i] > '\x60' && eingabe[i] < '\x7B') { //Kleinbuchstabe
-            eingabe[i] = eingabe[i] - '\x20';
-        }
-        else if (eingabe[i] > '\x40' && eingabe[i] < '\x5B') {
-            eingabe[i] = eingabe[i] + '\x20';
-        }
-    }
-    printf("%s", eingabe);
-    //char test = 'a';
-    //char ja = test - '\x20';
-    //printf("%c",ja);
+    scanf("%s %i %i", eingabe,&startIndex,&endIndex);
 
+    for (int i = startIndex; i <= endIndex; i++)
+    {
+        ausgabe[zaehler] = eingabe[i];
+        zaehler++;
+    }
+
+    printf("%s %i-%i: %s", eingabe,startIndex,endIndex,ausgabe);
     return 0;
 }
