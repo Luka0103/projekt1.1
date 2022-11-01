@@ -2,28 +2,28 @@
 #include <stdio.h>
 
 
+//Constanten
+#define ARRAY_DIM 4
+
+
 int main(void) {
-    int groesse;
-    scanf("%i", &groesse);
-    for (int i = 0; i < groesse; i++)
+    double eingabenArray[ARRAY_DIM];
+    double kleinsteEingabe;
+    int index;
+    for (int i = 0; i < ARRAY_DIM; i++)
     {
-        for (int j = 0; j < groesse; j++)
-        {
-            //letze oder erste zeile
-            if (i == 0 || i == groesse - 1) {
-                printf("*");
-            }
-            else if (j == 0 || j == groesse - 1) {
-                printf("*");
-            }
-            else if (i-j==0||i+j==groesse-1) {
-                printf("*");
-            }
-            else {
-                printf(" ");
-            }
-        }
-        printf("\n");
+        scanf("%lf", &eingabenArray[i]);
     }
+    kleinsteEingabe = eingabenArray[0];
+    index = 0;
+    for (int i = 0; i < ARRAY_DIM; i++)
+    {
+        if (kleinsteEingabe > eingabenArray[i]) {
+            kleinsteEingabe = eingabenArray[i];
+            index = i;
+        }
+    }
+
+    printf("Kleinste Zahl: %0.1lf an Index %i", kleinsteEingabe, index);
     return 0;
 }
