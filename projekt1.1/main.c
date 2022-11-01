@@ -6,28 +6,24 @@
 #define MAX_EINGABE 40
 
 char eingabe[MAX_EINGABE];
-char vokale[] = { 'a','e','i','o','u','A','E','I','O','U' };
 int main() {
     for (int i = 0; i < MAX_EINGABE; i++)   //Nicht gut besser wäre scanf mit %s aber nimmt moodle nicht
     {
-        scanf("%c", &eingabe[i]);           //eingabe0 == ersatz eingabe1== leerzeichen
+        scanf("%c", &eingabe[i]);          
     }
+    for (int i = 0; i < MAX_EINGABE; i++)
+    {
+        if (eingabe[i] > '\x60' && eingabe[i] < '\x7B') { //Kleinbuchstabe
+            eingabe[i] = eingabe[i] - '\x20';
+        }
+        else if (eingabe[i] > '\x40' && eingabe[i] < '\x5B') {
+            eingabe[i] = eingabe[i] + '\x20';
+        }
+    }
+    printf("%s", eingabe);
+    //char test = 'a';
+    //char ja = test - '\x20';
+    //printf("%c",ja);
 
-    for (int i = 2; i < MAX_EINGABE; i++)   //start bei eingabe2
-    {
-        for (int j = 0; j < 10; j++)
-        {
-            if (eingabe[i] == vokale[j]) {
-                eingabe[i] = eingabe[0];
-            }
-        }
-    }
-    for (int i = 2; i < MAX_EINGABE; i++)
-    {
-        if (eingabe[i] != '\x00') {
-            printf("%c", eingabe[i]);
-        }
-        
-    }
     return 0;
 }
