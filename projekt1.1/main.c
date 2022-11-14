@@ -2,17 +2,29 @@
 #include <stdio.h>
 
 //Konstanten
-#define ARRAY_LENGHT 40
+#define ARRAY_LENGHT 4
 
 
 
-char eingabe[ARRAY_LENGHT];
+int eingabe[ARRAY_LENGHT];
+double summe=0;
+double durchschnitt = 0;
 
 int main() {
     
-    scanf("%s", eingabe);
+    for (int i = 0; i < ARRAY_LENGHT; i++)
+    {
+        scanf("%i", &eingabe[i]);
+    }
+    for (int i = 0; i < ARRAY_LENGHT; i++)
+    {
+        summe += eingabe[i];
+    }
 
-    printf("%s", eingabe);
+    durchschnitt = summe / ARRAY_LENGHT;
+    
+
+    printf("Summe: %i\nDurchschnitt: %lf", (int) summe,durchschnitt);
 
     return 0;
 }
