@@ -2,17 +2,36 @@
 #include <stdio.h>
 
 //Konstanten
+#define ARRAY_LENGHT 4
+
+
+
+int eingabe[ARRAY_LENGHT];
+
+
+
+
+int arrayAusgeben() {
+	for (int i = 0; i < ARRAY_LENGHT; i++)
+	{
+		printf("%i ", eingabe[i]);
+	}
+	printf("\n");
+	return 0;
+}
 
 int main() {
-    int i;
-    int* ptr;
-    int** ptrptr;
-    ptr = &i;
-    ptrptr = &ptr;
-    i = 1;
-    printf("%i\n", i);
-    printf("%i\n", *ptr);
-    **ptrptr = 2;
-    printf("%i\n", i);
+
+	for (int i = 0; i < ARRAY_LENGHT; i++)
+	{
+		scanf("%i", &eingabe[i]);
+	}
+
+	int* eingabe2Pointer = &eingabe[2];
+	arrayAusgeben();
+	*eingabe2Pointer = 42;
+	arrayAusgeben();
+
+
     return 0;
 }
