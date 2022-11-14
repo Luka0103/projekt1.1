@@ -1,11 +1,18 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-int main(int argc, char* argv[]) {
-    int value = 42;
-    int* pointerValue = &value;
-    printf("%d\n", *pointerValue);
-    *pointerValue = 85;
-    printf("%d\n", *pointerValue);
-    *pointerValue = *pointerValue + 1;
-    printf("%d\n", *pointerValue);
+
+//Konstanten
+#define ARRAY_LENGHT 40
+
+
+
+char eingabe[ARRAY_LENGHT];
+
+int main() {
+    
+    scanf("%s", eingabe);
+
+    printf("%s", eingabe);
+
     return 0;
 }
